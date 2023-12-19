@@ -1,0 +1,6 @@
+flask
+waitress
+yt-dlp
+configparser
+ffmpeg
+ffprobe
