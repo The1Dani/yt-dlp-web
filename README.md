@@ -18,4 +18,4 @@ pip install -r requirements.txt
 
 Enjoy.
 
-    On linux you can just run the wsgi.py with python and you are good to go
+On linux you can just run the wsgi.py with python and you are good to go
