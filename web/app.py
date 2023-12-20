@@ -13,7 +13,8 @@ if not os.path.isfile(r"config.ini"):
     config.add_section("Paths")
     config.set("Paths","videos","Replace This")
     config.set("Paths","audio","Replace This")
-
+    config.add_section("Quality")
+    config.set("Quality","max-height","1080")
     with open(r"config.ini", "w") as configfile:
         config.write(configfile)
 
@@ -25,6 +26,9 @@ config.read("config.ini")
 paths = config["Paths"]
 videos_path = paths["videos"]
 audio_path = paths["audio"]
+set_quality = config["Quality"]["max-height"]
+
+#?
 
 def isValidPath():
     if os.path.isdir(videos_path) and os.path.isdir(audio_path):
@@ -35,7 +39,7 @@ def isValidPath():
 if os.path.isdir(videos_path) and os.path.isdir(audio_path):
 
     ydl_opts_vid = {
-        'format': "bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best",
+        'format': f"bestvideo[height<={set_quality}][ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best",
         "paths": {
             "home": videos_path 
         }

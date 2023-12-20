@@ -1,4 +1,4 @@
 venv
 folder-for-videos
-web/config.ini
+*config.ini
 *_
