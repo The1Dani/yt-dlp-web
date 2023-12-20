@@ -14,8 +14,19 @@ pip install -r requirements.txt
 ```
 3- If you are on windows you can easily start the web sever by running the server.bat one time than filling the config.ini with the required paths and desired quality for the video.
 
+If you want to use the windows version you may need to install
+
+ffmpeg and ffprobe
+
+you can do that with
+
+    winget install ffmpeg ffprobe
+
 4- Run the server.bat again for the server to run 
 
 Enjoy.
+
+
+
 
 On linux you can just run the wsgi.py with python and you are good to go
