@@ -1,4 +1,5 @@
-venv
+*venv*
 folder-for-videos
 *config.ini
 *_
+*-old*
