@@ -65,27 +65,39 @@ if os.path.isdir(videos_path) and os.path.isdir(audio_path):
 
     @app.route("/", methods=["GET","POST"])
     def hello_world():
+        err_vid,err_aud = None,None
 
         if request.method == "POST":
             URL = request.form.get("url")
             checkbox = request.form.get("checkbox") # on/mp3 off/mp4
+            mp3_chcek = request.form.get("mp3")
+            mp4_chcek = request.form.get("mp4")
 
+            
             if not URL:
                 return redirect("/")
             else:
-                if checkbox == "on":
-                    err = ytdwn(URL,ydl_opts_aud)
+                
+                if mp3_chcek:
+                    err_aud = ytdwn(URL,ydl_opts_aud)
                     
-                else:
-                    err = ytdwn(URL,ydl_opts_vid)
+                if mp4_chcek:
+                    err_vid = ytdwn(URL,ydl_opts_vid)
                     
 
-                if err:
-                    print(err)
-                    
+                if err_aud:
+                    print(err_aud)
+                 
+                if err_vid:
+                    print(err_vid)   
+                
                 return redirect("/")
         else:
             return render_template("base.html")
+        
+    
+
+
 
 else:
     print(videos_path,"asd")
